@@ -17,7 +17,7 @@ before_script:
  - drush make drushmake/drupalmatic.make drupal
  - cp -r drushmake/drupalmatic drupal/profiles
  - cd drupal
- - drush si drupalmatic --db-url=mysql://root:@localhost/drupal --yes
+ - php -d sendmail_path=/dev/null `which drush` si drupalmatic --db-url=mysql://root:@localhost/drupal --yes
  - drush en --yes simpletest
  - drush cc all
  - drush runserver --server=builtin 8080 &
